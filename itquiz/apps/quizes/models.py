@@ -30,7 +30,7 @@ class Question(models.Model):
     quiz = models.ForeignKey('quizes.Quiz', on_delete=models.CASCADE, related_name='questions')
 
     def is_multi_choice(self):
-        return len(self.answers.filter(question__pk=self.pk)) > 1
+        return len(self.answers.filter(question__pk=self.pk, is_correct=True)) > 1
 
     def __str__(self):
         return self.text

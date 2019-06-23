@@ -8,9 +8,10 @@
   </head>
   <body>
     <div class="header">
-      <a href="{% url 'index' %}" class="logo">IT Quiz</a>
+      <a id="home_button" href="{% url 'index' %}" class="logo">IT Quiz</a>
       <div class="header-right">
-        <a href="#about">About</a>
+        <a href="#">New Quiz</a>
+        <a href="{% url 'about' %}">About</a>
       </div>
     </div>
     {% block content %}

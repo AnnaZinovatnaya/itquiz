@@ -1,8 +1,16 @@
+from django.shortcuts import render
+from django.http import Http404
+
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
-from itquiz.apps.quizes.models import Category, Quiz, Question
+from itquiz.apps.quizes.models import Category, Quiz, Question, Answer
 
+import logging
+
+
+
+logger = logging.getLogger('django_console')
 
 class IndexView(ListView):
     model = Quiz
@@ -36,3 +44,7 @@ class QuizView(DetailView):
         context = super().get_context_data(**kwargs)
         context['questions_list'] = Question.objects.filter(quiz__slug=self.kwargs['slug'])
         return context
+
+
+def about(request):
+    return render(request, 'about.html')

@@ -36,6 +36,23 @@ body {
     font-family: Helvetica, Verdana, sans-serif;
 }
 
+nav {
+  float: left;
+  width: 20%;
+  padding: 20px;
+}
+
+.all-quizes {
+  float: left;
+  padding: 20px;
+  width: 70%;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 ul {
   list-style-type: none;
@@ -46,7 +63,7 @@ ul {
 li {
   font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
   border-bottom: 1px solid #ccc;
-  margin: 0px 20px;
+  margin: 0px 10px;
 }
 
 li:last-child {
@@ -63,3 +80,4 @@ li a {
 li a:hover {
   background: #f1f1f1;
 }
+

@@ -2,10 +2,35 @@
 
 {% block content %}
 <h1 align="center">{{quiz.title}}</h1>
-    <h2>Questions</h2>
-    <ol>
+<form id="quiz_form" method="post">
+  <ol>
     {% for question in questions_list %}
-        <li>{{ question.text }}</li>
+    <li>{{ question.text }}</li>
+    {% csrf_token %}
+    <div class="question">
+      {% for answer in question.answers.all %}
+      <p class="answer">
+        {% if question.is_multi_choice == True %}
+      <input type="checkbox" name="{{ question.pk }}"><label id="answer_{{ answer.pk }}">{{ answer.text }}</label>
+        <label hidden="true">{{answer.is_correct}}</label><br>
+        {% else %}
+      <input type="radio" name="{{ question.pk }}"><label id="answer_{{ answer.pk }}">{{ answer.text }}</label>
+      <label hidden="true">{{answer.is_correct}}</label><br>
+        {% endif %}
+      </p>
+      {% endfor %}
+    </div>
     {% endfor %}
-    </ol>
+  </ol>
+  <p>
+    <input id="btn" type="submit" value="Check">
+  </p>
+</form>
+<!--<script type="text/javascript">-->
+<!--window.onbeforeunload = function() {-->
+<!--return "Your answers will not be saved!";-->
+<!--};-->
+<!--</script>-->
+{% load static %}
+<script src="{% static 'quizes/js/quizes.js' %}"></script>
 {% endblock %}

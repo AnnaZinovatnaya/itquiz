@@ -1,20 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<section>
+  <nav>
     <h2>Categories</h2>
     <ul>
-    {% for category in categories_list %}
-        <li><a href="{% url 'category' category.slug %}">{{ category.title }}</a></li>
-    {% empty %}
-        <li>No categories yet.</li>
-    {% endfor %}
+      {% for category in categories_list %}
+      <li><a href="{% url 'category' category.slug %}">{{ category.title }}</a></li>
+      {% empty %}
+      <li>No categories yet.</li>
+      {% endfor %}
     </ul>
+  </nav>
+  <div class="all-quizes">
     <h2>All Quizes</h2>
     <ul>
-    {% for quiz in quizes_list %}
-        <li><a href="{% url 'quiz' quiz.category.slug quiz.slug %}">{{ quiz.title }} | {{ quiz.category }}</a></li>
-    {% empty %}
-        <li>No quizes yet.</li>
-    {% endfor %}
+      {% for quiz in quizes_list %}
+      <li><a href="{% url 'quiz' quiz.category.slug quiz.slug %}">{{ quiz.title }} | {{ quiz.category }}</a></li>
+      {% empty %}
+      <li>No quizes yet.</li>
+      {% endfor %}
     </ul>
+  </div>
+</section>
+
 {% endblock %}
