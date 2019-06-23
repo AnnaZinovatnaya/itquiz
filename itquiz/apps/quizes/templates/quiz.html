@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 align="center">{{quiz.title}}</h1>
+    <h2>Questions</h2>
+    <ol>
+    {% for question in questions_list %}
+        <li>{{ question.text }}</li>
+    {% endfor %}
+    </ol>
+{% endblock %}

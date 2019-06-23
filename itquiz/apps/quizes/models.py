@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Category(models.Model):
+    slug = models.SlugField()
     title = models.CharField(db_index=True, max_length=255)
 
     def __str__(self):
@@ -12,6 +13,7 @@ class Category(models.Model):
 
 
 class Quiz(models.Model):
+    slug = models.SlugField()
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(db_index=True, max_length=255)
     category = models.ForeignKey('quizes.Category', on_delete=models.CASCADE, related_name='quizes')

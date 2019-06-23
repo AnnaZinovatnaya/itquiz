@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 align="center">{{category.title}}</h1>
+    <h2>Quizes</h2>
+    <ul>
+    {% for quiz in quizes_list %}
+        <li><a href="{% url 'quiz' category.slug quiz.slug %}">{{ quiz.title }}</a></li>
+    {% empty %}
+        No quizes in this category yet
+    {% endfor %}
+    </ul>
+{% endblock %}

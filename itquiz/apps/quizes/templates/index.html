@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2 align="middle">All Quizes</h2>
-    <h1>Categories</h1>
+    <h2>Categories</h2>
     <ul>
     {% for category in categories_list %}
-        <li>{{ category.title }}</li>
+        <li><a href="{% url 'category' category.slug %}">{{ category.title }}</a></li>
     {% empty %}
         <li>No categories yet.</li>
     {% endfor %}
     </ul>
-    <h1>Quizes</h1>
+    <h2>All Quizes</h2>
     <ul>
     {% for quiz in quizes_list %}
-        <li>{{ quiz.title }} | {{ quiz.category }}</li>
+        <li><a href="{% url 'quiz' quiz.category.slug quiz.slug %}">{{ quiz.title }} | {{ quiz.category }}</a></li>
     {% empty %}
         <li>No quizes yet.</li>
     {% endfor %}

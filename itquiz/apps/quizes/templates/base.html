@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <title>IT Quiz</title>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'quiz/css/quiz.css' %}" type="text/css" media="screen" >
+    <link rel="stylesheet" href="{% static 'quizes/css/quizes.css' %}" type="text/css" media="screen" >
   </head>
   <body>
-    <h3>Hi!</h3>
-
-
+    <div class="header">
+      <a href="{% url 'index' %}" class="logo">IT Quiz</a>
+      <div class="header-right">
+        <a href="#about">About</a>
+      </div>
+    </div>
     {% block content %}
     {% endblock %}
   </body>
