@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 align="middle">All Quizes</h2>
+    <h1>Categories</h1>
+    <ul>
+    {% for category in categories_list %}
+        <li>{{ category.title }}</li>
+    {% empty %}
+        <li>No categories yet.</li>
+    {% endfor %}
+    </ul>
+    <h1>Quizes</h1>
+    <ul>
+    {% for quiz in quizes_list %}
+        <li>{{ quiz.title }} | {{ quiz.category }}</li>
+    {% empty %}
+        <li>No quizes yet.</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
