@@ -1,4 +1,4 @@
-# itquiz
+# IT Quiz
 
 Rework of Quiz_Project (https://github.com/AnnaZinovatnaya/Quiz_Project)
 
